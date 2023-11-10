@@ -3,7 +3,7 @@ import Chart from "chart.js/auto";
 import { useEffect, useState } from "react";
 import { plugins } from "@/postcss.config";
 
-    const VulnChart = () => {
+    const VulnChart = ({setValidCount}) => {
         const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -17,6 +17,7 @@ import { plugins } from "@/postcss.config";
       })
       .then((data) => {
         setData(data['array']);
+        setValidCount(data['validCount'])
       })
       .catch((error) => {
         console.error('API request failed:', error);

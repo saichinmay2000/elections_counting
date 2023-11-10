@@ -32,29 +32,35 @@ export default function RecordEntry() {
   }, []);
 
   const sendData = async () => {
-    const postData = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        one: one,
-        two: two,
-        three: three,
-        four: four,
-        five: five,
-        six: six,
-        seven: seven,
-        eight: eight,
-        nine: nine,
-        ten: ten,
-        eleven: eleven,
-        twelve: twelve,
-        username: user,
-      }),
-    };
-    const res = await fetch(`/api/insertRecord`, postData);
-    Router.reload();
+    if(one!==0)
+    {
+      const postData = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          one: one,
+          two: two,
+          three: three,
+          four: four,
+          five: five,
+          six: six,
+          seven: seven,
+          eight: eight,
+          nine: nine,
+          ten: ten,
+          eleven: eleven,
+          twelve: twelve,
+          username: user,
+        }),
+      };
+      const res = await fetch(`/api/insertRecord`, postData);
+      Router.reload();
+    }
+    else{
+      alert('Please enter at least one Vote to Submit')
+    }
   };
 
   return (

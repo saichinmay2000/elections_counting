@@ -2,10 +2,10 @@ import mysql from "mysql2/promise";
 
 export default async (req, res) => {
   const connection = await mysql.createConnection({
-    host: "127.0.0.1",
-    user: "root",
-    password: "root",
-    database: "csc_elections",
+    host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
   });
   if (req.method === "GET") {
     if (req.query.valid) {
@@ -17,8 +17,11 @@ export default async (req, res) => {
         const count = rows[0].count;
         array.push(count);
       }
+      const valid = await connection.execute(
+        `SELECT COUNT(status) AS count FROM com_elec WHERE status = 'valid'`
+      );
       await connection.end();
-      res.status(200).json({ array, invalidCount: 0 });
+      res.status(200).json({ array, validCount: valid[0][0]["count"] });
     } else if (req.query.invalid) {
       const array = [];
       for (var i = 1; i <= 24; i++) {
