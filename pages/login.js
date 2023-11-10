@@ -33,25 +33,6 @@ export default function LoginPage({ isUserLoggedIn }) {
   };
 
   return (
-    // <div>
-    //   <h1>Login</h1>
-    //   <form onSubmit={handleLogin}>
-    //     <input
-    //       type="text"
-    //       placeholder="Username"
-    //       value={username}
-    //       onChange={(e) => setUsername(e.target.value)}
-    //     />
-    //     <input
-    //       type="password"
-    //       placeholder="Password"
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     />
-    //     <button type="submit">Login</button>
-    //   </form>
-    // </div>
-
     <div
       className={`${inter.className} min-h-[100vh] w-full flex items-center justify-center bg-gray-50`}
     >

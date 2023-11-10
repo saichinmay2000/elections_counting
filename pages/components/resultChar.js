@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { plugins } from "@/postcss.config";
 
     const VulnChart = ({setValidCount}) => {
-        const [data, setData] = useState(null);
+    const [data, setData] = useState(null);
 
   useEffect(() => {
     const apiUrl = '/api/getElecData?valid=true'; 
@@ -41,6 +41,7 @@ import { plugins } from "@/postcss.config";
             width={500}
             options={
             {
+              responsive: true,
               maintainAspectRatio: false
             }
           }

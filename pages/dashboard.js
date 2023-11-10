@@ -3,6 +3,8 @@ import Header from "./components/header";
 import VulnChart from "./components/resultChar";
 import Router, { useRouter } from "next/router";
 import VulnChartInvalid from "./components/resultChar-invalid";
+import Image from "next/image";
+import Footer from "./components/footer";
 
 export default function Dashboard() {
   const [user, setUser] = useState("");
@@ -15,6 +17,12 @@ export default function Dashboard() {
       setUser(window.localStorage.getItem("csc_user"));
     }
   }, []);
+  useEffect(() => {
+    setInterval(
+      function() {
+      window.location.reload();
+    }, 30000);
+  })
   return (
     <>
       <Header />
@@ -31,31 +39,28 @@ export default function Dashboard() {
         </button>
         }
       </div>
-      <div className="p-5">
+      <div className="p-5 -mt-10">
         <h1 className="font-bold">
           {" "}
           <span className="border-2 border-red-800 rounded-full p-1 pl-3 pr-3 text-xs animate-pulse">
-            🔴 LIVE (Valid Votes) : {validCount}
+            🔴 LIVE 
           </span>
         </h1>
+        <h1 className="font-bold mt-1">Number of Invalid Votes: {invalidCount}</h1>
+        <h1 className="font-bold">Number of Valid Votes: {validCount}</h1>
         <VulnChart setValidCount={setValidCount}/>
         <VulnChartInvalid setInvalidCount={setInvalidCount}/>
-        <div class="relative flex py-5 items-center">
-            <div class="flex-grow border-t border-gray-400"></div>
-            <span class="flex-shrink mx-4 text-gray-400">Content</span>
-            <div class="flex-grow border-t border-gray-400"></div>
-        </div>
+        
         <div className="w-fit">
-          <h1 className="font-bold">
-            {" "}
-            <span className="border-2 border-red-800 rounded-full p-1 pl-3 pr-3 text-xs animate-pulse">
-              🔴 LIVE
-            </span>
-          </h1>
-          <h1 className="font-bold mt-1">Number of Invalid Votes: {invalidCount}</h1>
-          <h1 className="font-bold">Number of Valid Votes: {validCount}</h1>
+        <Image
+            className="p-4"
+            src={require("public/list.jpg")}
+            alt="Your Company"
+            
+          />
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

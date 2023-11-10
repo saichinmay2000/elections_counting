@@ -26,9 +26,7 @@ const VulnChartInvalid = ({setInvalidCount}) => {
   }, []);
 
   return (
-    <div>
-      
-    </div>
+    <></>
   );
 };
 export default VulnChartInvalid;
