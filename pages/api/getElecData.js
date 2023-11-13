@@ -50,7 +50,7 @@ export default async function handler(req, res) {
           array.push(count);
         }
         invalid = await connection.execute(
-          `SELECT COUNT(status) AS count FROM com_elec WHERE status = 'valid'`
+          `SELECT COUNT(status) AS count FROM com_elec WHERE status = 'in-valid'`
         );
       } else {
         for (var i = 1; i <= 2; i++) {
