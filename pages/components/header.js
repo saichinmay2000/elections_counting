@@ -5,6 +5,7 @@ export default function Header() {
 
   const handleLogout = async () => {
     localStorage.removeItem("csc_user");
+    localStorage.removeItem("csc_user_type");
     Router.push("/");
   };
 

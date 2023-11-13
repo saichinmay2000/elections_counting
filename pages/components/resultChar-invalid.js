@@ -3,11 +3,12 @@ import Chart from "chart.js/auto";
 import { useEffect, useState } from "react";
 import { plugins } from "@/postcss.config";
 
-const VulnChartInvalid = ({setInvalidCount}) => {
+const VulnChartInvalid = ({ setInvalidCount }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const apiUrl = "/api/getElecData?invalid=true";
+    const userType = window.localStorage.getItem("csc_user_type");
+    const apiUrl = "/api/getElecData?invalid=true&userType=" + userType;
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -16,16 +17,14 @@ const VulnChartInvalid = ({setInvalidCount}) => {
         return response.json();
       })
       .then((data) => {
-        setData(data['array']);
-        setInvalidCount(data['invalidCount'])
+        setData(data["array"]);
+        setInvalidCount(data["invalidCount"]);
       })
       .catch((error) => {
         console.error("API request failed:", error);
       });
   }, []);
 
-  return (
-    <></>
-  );
+  return <></>;
 };
 export default VulnChartInvalid;

@@ -44,13 +44,13 @@ export default function LoginPage({ isUserLoggedIn }) {
             className="border-2 border-black rounded p-2 pl-4 pr-4 text-center hover:bg-black hover:text-white cursor-pointer"
             onClick={() => SetUserType("President")}
           >
-            PRESIDENT COUNT
+            PRESIDENT ELECTIONS LOGIN
           </p>
           <p
             className="border-2 border-black rounded p-2 pl-4 pr-4 text-center hover:bg-black hover:text-white cursor-pointer"
             onClick={() => SetUserType("Committee")}
           >
-            COMMITTEE COUNT
+            COMMITTEE ELECTIONS LOGIN
           </p>
         </div>
       )}
@@ -66,7 +66,7 @@ export default function LoginPage({ isUserLoggedIn }) {
             <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                  {UserType}
+                  {UserType} Elections
                   <br />
                   Sign in to your account
                 </h1>
