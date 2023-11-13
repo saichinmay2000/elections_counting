@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "./components/header";
+import Router from "next/router";
 
 export default function ResultList() {
   const [data, setData] = useState(null);
