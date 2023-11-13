@@ -16,7 +16,6 @@ const VulnChartInvalid = ({setInvalidCount}) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setData(data['array']);
         setInvalidCount(data['invalidCount'])
       })
