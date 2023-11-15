@@ -72,7 +72,11 @@ export default function RecordEntry() {
               }),
       };
       const res = await fetch(`/api/insertRecord`, postData);
-      Router.reload();
+      const result = await res.json();
+      if (result["status"] === true) {
+        Router.reload();
+      } else {
+      }
     } else {
       alert("Please enter at least one Vote to Submit");
     }
@@ -81,7 +85,7 @@ export default function RecordEntry() {
   return (
     <>
       <Header />
-      <div className="container mx-auto p-5">
+      <div className="p-10">
         <h1 className="font-bold text-lg">Please enter the below fields...</h1>
         <h1 className="font-bold  mt-8">Hey {user} !</h1>
         <h2 className="font-bold text-base">
@@ -124,7 +128,7 @@ export default function RecordEntry() {
           </div>
         ) : (
           <div>
-            <div className="flex flex-row p-10 justify-between">
+            <div className="flex flex-row flex-wrap gap-10 mt-10">
               <div>
                 <label
                   for="inputone"
@@ -216,8 +220,6 @@ export default function RecordEntry() {
                   onChange={(e) => setSix(e.target.value)}
                 />
               </div>
-            </div>
-            <div className="flex flex-row p-10 justify-between">
               <div>
                 <label
                   for="inputseven"
@@ -311,10 +313,10 @@ export default function RecordEntry() {
             </div>
           </div>
         )}
-        <div className="ml-10">
+        <div className="mt-10">
           <button
             onClick={() => sendData()}
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white w-max bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Submit
           </button>

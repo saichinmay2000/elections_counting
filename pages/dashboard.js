@@ -24,7 +24,7 @@ export default function Dashboard() {
   }, []);
   useEffect(() => {
     setInterval(function () {
-      window.location.reload();
+      Router.reload();
     }, 30000);
   });
   return (
@@ -62,7 +62,7 @@ export default function Dashboard() {
           {userType === "Committee" ? (
             <Image
               className="p-4"
-              src={require("public/list.jpg")}
+              src={require("public/list2.jpg")}
               alt="Your Company"
             />
           ) : (
